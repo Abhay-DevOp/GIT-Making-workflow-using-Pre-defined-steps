@@ -1,0 +1,24 @@
+name: Pre-defined steps
+on:
+    push:
+      branches : [main]
+
+jobs:
+  pre-defined-jobs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.1.0
+        with:
+          node-version: 22.X
+      - name: Install Dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+      - name: Build Project
+        run: npm run build
+        
+          
